@@ -1,23 +1,12 @@
 console.log('client.js is sourced!');
 
-axios({
-    method: 'GET',
-    url: '/calculations'
-})
-.then(() => {
-
-})
-.catch(() => {
-
-});
-
 function pageLoad(){
     axios({
         method: 'GET',
         url: '/calculations'
     })
-    .then(() => {
-
+    .then((response) => {
+        renderData(response);
     })
     .catch(() => {
 
@@ -25,11 +14,36 @@ function pageLoad(){
 };
 pageLoad();
 
-function requestMath(){
-    
+let currentComputation = {numOne: '', numTwo: '', operator: ''};
+
+function addOperator(event){
+    event.preventDefault();
+    currentComputation.operator = event.target.value;
+    console.log(currentComputation.operator);
+}
+
+function requestMath(event){
+    event.preventDefault();
+    console.log('Sending calculation request to server');
+    const firstDigit = document.querySelector('.firstNumber');
+    const secondDigit = document.querySelector('.secondNumber');
+    currentComputation.numOne = firstDigit.value;
+    currentComputation.numTwo = secondDigit.value;
     axios({
         method: 'POST',
         url: '/calculations',
-        data:
+        data: currentComputation
     })
+    .then((response) => {
+        console.log(response);
+        pageLoad();
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+};
+
+function renderData(things){
+    const recentCalc = document.querySelector('#recentResult');
+    recentCalc.innerHTML = `<h2>${things[0].result}</h2>`;
 };

@@ -18,9 +18,27 @@ app.get('/calculations', (req,res) => {
   res.status(200).send(calculations)
 });
 // POST /calculations
-app.post('/calculations', (req,res) => {
 
-  res.status(200).send('Request Recieved')
+app.post('/calculations', (req,res) => {
+  const newRequest = req.body;                 //Take in requested object
+  console.log('New object ', newRequest);      //Validate object
+  switch (newRequest.operator){                //Clumsily doing the math
+    case "+":
+      newRequest.result = parseInt(newRequest.numOne) + parseInt(newRequest.numTwo);
+      break;
+    case "-":
+      newRequest.result = parseInt(newRequest.numOne) - parseInt(newRequest.numTwo);
+      break;
+    case "*":
+      newRequest.result = parseInt(newRequest.numOne) * parseInt(newRequest.numTwo);
+      break;
+    case "/":
+      newRequest.result = parseInt(newRequest.numOne) / parseInt(newRequest.numTwo);
+      break;
+  };
+  calculations.unshift(newRequest);             //Update calc history
+  console.log('All calcs ', calculations);      //Validate history
+  res.sendStatus(201);                          //Send status
 });
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
