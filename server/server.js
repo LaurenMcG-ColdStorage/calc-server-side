@@ -36,7 +36,7 @@ app.post('/calculations', (req,res) => {
       newRequest.result = parseInt(newRequest.numOne) / parseInt(newRequest.numTwo);
       break;
   };
-  calculations.unshift(newRequest);             //Update calc history
+  calculations.push(newRequest);             //Update calc history
   console.log('All calcs ', calculations);      //Validate history
   res.sendStatus(201);                          //Send status
 });
