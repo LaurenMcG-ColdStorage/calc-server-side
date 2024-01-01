@@ -14,8 +14,7 @@ let calculations = []
 
 // GET /calculations
 app.get('/calculations', (req,res) => {
-
-  res.status(200).send(calculations)
+  res.send(calculations);
 });
 // POST /calculations
 
