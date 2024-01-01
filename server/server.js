@@ -40,6 +40,13 @@ app.post('/calculations', (req,res) => {
   res.sendStatus(201);                          //Send status
 });
 
+//DELETE /calculations
+
+app.delete('/calculations', (req,res) => {
+  calculations = [];
+  res.sendStatus(202);
+})
+
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
 // 🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸
 

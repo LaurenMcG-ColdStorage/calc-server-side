@@ -65,4 +65,17 @@ function renderData(){                   //Update page
     });
 };
 
+function clearHistory(event){
+    axios({
+        method: 'DELETE',
+        url: '/calculations'
+    })
+    .then((response) => {
+
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+}
+
 renderData();
