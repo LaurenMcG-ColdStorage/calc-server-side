@@ -31,7 +31,9 @@ The code specific requirements of this calculator's functionality include:
 
 The operator selection was requested to be in button form, and thus has been made into a function which updates our /post object. The "=" button takes in the number inputs and stores the values in /post object, then initiates a post request for the server to perform calculations.
 
-A clear button is also added to our calculator, which when pressed will empty the input boxes and clear any operator from storage.
+A clear button is added to our calculator, which when pressed will empty the input boxes and clear any operator from storage.
+
+A Clear Everything button is added to the calculator, which empties calculation history and input fields.
 
 All numbers are parsed to integers on the server side to prevent possible string concatenation.
 
