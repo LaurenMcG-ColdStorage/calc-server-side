@@ -35,11 +35,16 @@ function renderData(){
         url: '/calculations'
     })
     .then((response) => {
-        const calculations = response.data;
-        console.log(calculations)
-        const recentCalc = document.querySelector('#recentResult');
-        recentCalc.innerHTML = ''
-        recentCalc.innerHTML += `<h2>${calculations[calculations.length-1].result}</h2>`;
+        const calculations = response.data;      //Save our array
+        console.log(calculations);               //Validate
+        const recentCalc = document.querySelector('#recentResult');   //Find the most recent section
+        const historyCalc = document.querySelector('#resultHistory'); //Find the history section
+        recentCalc.innerHTML = ''    //Clear recent history
+        historyCalc.innerHTML = ''   //Clear full history
+        recentCalc.innerHTML += `<h2>${calculations[calculations.length-1].result}</h2>`; //Print recent history
+        for (let calc = 0; calc < calculations.length; calc++){
+            historyCalc.innerHTML +=`<li>${calculations[calc].numOne} ${calculations[calc].operator} ${calculations[calc].numTwo} = ${calculations[calc].result}</li>`
+        };
     })
     
 };
