@@ -21,7 +21,7 @@ function requestMath(event){                                      //Package inpu
     console.log('Sending calculation request to server');         //Validate function initiation
     const firstDigit = document.querySelector('.firstNumber');    //Find first digit location
     const secondDigit = document.querySelector('.secondNumber');  //Find second digit location
-    const warningBanner = document.querySelector('.warning');     //Find warning banner location
+    const warningBanner = document.querySelector('.warning');     //Find the warning banner
     currentComputation.numOne = firstDigit.value;                 //Grab first digit, store in object
     currentComputation.numTwo = secondDigit.value;                //Grab second digit, store in object
     if ( currentComputation.numOne != '' && currentComputation.numTwo != '' && currentComputation.operator != ''){
@@ -32,6 +32,7 @@ function requestMath(event){                                      //Package inpu
         })
         .then((response) => {
             console.log(response);         //Validate server response
+            warningBanner.innerHTML = '' //Clear warning banner
             renderData(response);          //Update page
         })
         .catch((error) => {
