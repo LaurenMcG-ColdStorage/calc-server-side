@@ -2,6 +2,20 @@
 
 [Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
 
+## Requirements
+
+node.js
+axios
+
+## Installation
+
+- Fork this repo and clone it to your local machine.
+- Open the directory in your chosen IDE.
+- Ensure that node is installed by running npm install in your terminal
+- Run npm start in your terminal
+- Open a browser window and navigate to localhost:5000
+
+
 ## Description
 
 The aim of this project is to create a basic web based calculator. The calculator needs to be able to perform addition, subtraction, multiplication, and division. The calculator needs only to be able to take in two numbers.
